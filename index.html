@@ -3,338 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>West Linn Dentist | CEREC Crowns &amp; Invisalign | Tichy Dental</title>
-<meta name="description" content="Gentle, microscope-assisted dentistry in West Linn, OR. CEREC same-day crowns, Invisalign, and family care. Book online today.">
+<title>West Linn Dentist | CEREC Crowns &amp; Clear Aligners | Tichy Dental</title>
+<meta name="description" content="Gentle, microscope-assisted dentistry in West Linn, OR. CEREC same-day crowns, 3M Clarity clear aligners, and family care. Book online today.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,640&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0E3A47;
-    --teal:#155E75;
-    --teal-soft:#E8F4F8;
-    --teal-mist:#F4F9FB;
-    --amber:#C8892B;
-    --amber-deep:#A9701C;
-    --paper:#FDFEFE;
-    --line:#D8E6EC;
-    --muted:#5B7681;
-    --display:'Fraunces', Georgia, serif;
-    --body:'Figtree', 'Segoe UI', system-ui, sans-serif;
-    --radius:18px;
-    --shadow:0 18px 50px -18px rgba(14,58,71,.25);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
-  img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="canonical" href="https://www.tichydental.com/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tichy Dental">
+<meta property="og:title" content="West Linn Dentist | CEREC Crowns &amp; Clear Aligners | Tichy Dental">
+<meta property="og:description" content="Gentle, microscope-assisted dentistry in West Linn, OR. CEREC same-day crowns, 3M Clarity clear aligners, and family care. Book online today.">
+<meta property="og:url" content="https://www.tichydental.com/">
+<meta property="og:image" content="https://rainmanjam.github.io/tichy-dental-concept/assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dentist", "name": "Tichy Dental", "url": "https://www.tichydental.com/", "telephone": "+1-503-635-3588", "email": "info@tichydental.com", "image": "https://rainmanjam.github.io/tichy-dental-concept/assets/img/og-image.jpg", "logo": "https://rainmanjam.github.io/tichy-dental-concept/assets/img/apple-touch-icon.png", "address": {"@type": "PostalAddress", "streetAddress": "18607 Willamette Dr.", "addressLocality": "West Linn", "addressRegion": "OR", "postalCode": "97068", "addressCountry": "US"}, "geo": {"@type": "GeoCoordinates", "latitude": 45.3912526, "longitude": -122.6463701}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "08:00", "closes": "17:00"}], "areaServed": ["West Linn", "Lake Oswego", "Oregon City"], "sameAs": ["https://www.facebook.com/TichyDental/", "https://www.instagram.com/tichydental/", "https://twitter.com/MichaelTichyDMD"]}</script>
 
-  /* ---------- eyebrow / type utilities ---------- */
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
-  .eyebrow .dot{color:var(--amber)}
-  h1,h2,h3{font-family:var(--display);font-weight:560;line-height:1.12;letter-spacing:-.01em}
-  .lede{font-size:18px;color:var(--muted);max-width:56ch}
-
-  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;
-       padding:14px 26px;border-radius:999px;transition:transform .18s ease, box-shadow .18s ease;
-       cursor:pointer;border:0}
-  .btn svg{flex:none}
-  .btn-amber{background:var(--amber);color:#fff;box-shadow:0 10px 26px -10px rgba(200,137,43,.7)}
-  .btn-amber:hover{transform:translateY(-2px);background:var(--amber-deep)}
-  .btn-ghost{border:1.5px solid var(--line);color:var(--ink);background:#fff}
-  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
-  .btn-dark{background:var(--ink);color:#fff}
-  .btn-dark:hover{background:var(--teal)}
-
-  /* ---------- top utility bar ---------- */
-  .topbar{background:var(--ink);color:#CBE4EE;font-size:13.5px}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;min-height:40px;gap:16px}
-  .topbar a{display:inline-flex;align-items:center;gap:7px}
-  .topbar a:hover{color:#fff}
-  .topbar .left{display:flex;gap:22px;flex-wrap:wrap}
-  .topbar .hours{color:#8FB9C8}
-  .topbar svg{opacity:.75}
-
-  /* ---------- header ---------- */
-  header.site{position:sticky;top:0;z-index:60;background:rgba(253,254,254,.92);
-    backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s, box-shadow .2s}
-  header.site.scrolled{border-color:var(--line);box-shadow:0 8px 30px -20px rgba(14,58,71,.35)}
-  .navrow{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand img{height:52px;width:auto}
-  .brand .name{font-family:var(--display);font-size:21px;font-weight:640;line-height:1.05}
-  .brand .name small{display:block;font-family:var(--body);font-size:10.5px;font-weight:700;
-    letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-top:3px}
-  nav.main{display:flex;align-items:center;gap:6px}
-  nav.main>div{position:relative}
-  nav.main a.top{display:inline-block;padding:10px 14px;font-weight:600;font-size:15px;border-radius:10px}
-  nav.main a.top:hover{background:var(--teal-soft);color:var(--teal)}
-  nav.main .dd{position:absolute;top:calc(100% + 6px);left:8px;min-width:230px;background:#fff;
-    border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;
-    opacity:0;visibility:hidden;transform:translateY(6px);transition:.18s ease}
-  nav.main>div:hover .dd,nav.main>div:focus-within .dd{opacity:1;visibility:visible;transform:none}
-  nav.main .dd a{display:block;padding:10px 12px;border-radius:9px;font-size:14.5px;font-weight:500}
-  nav.main .dd a:hover{background:var(--teal-mist);color:var(--teal)}
-  nav.main .dd .sub{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--muted);padding:8px 12px 2px}
-  .nav-cta{display:flex;align-items:center;gap:10px}
-  .login-link{font-weight:600;font-size:14.5px;color:var(--teal)}
-  .login-link:hover{text-decoration:underline}
-  .hamburger{display:none;background:none;border:1.5px solid var(--line);border-radius:10px;
-    padding:9px 11px;cursor:pointer;color:var(--ink)}
-
-  /* ---------- hero ---------- */
-  .hero{background:
-      radial-gradient(900px 520px at 88% -10%, var(--teal-soft) 0%, transparent 60%),
-      linear-gradient(180deg,var(--paper) 0%, var(--teal-mist) 100%);
-    overflow:hidden}
-  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:64px;padding-bottom:84px}
-  .hero h1{font-size:clamp(38px,4.6vw,58px);margin:18px 0 20px}
-  .hero h1 em{font-style:italic;color:var(--teal)}
-  .hero .lede{margin-bottom:32px}
-  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .hero .rating{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:14px;color:var(--muted)}
-  .stars{color:var(--amber);letter-spacing:2px;font-size:15px}
-
-  .hero-visual{position:relative}
-  .hero-visual .office{border-radius:26px;box-shadow:var(--shadow);aspect-ratio:4/3.1;object-fit:cover;width:100%;background:var(--teal-soft)}
-  /* the scope lens — signature element */
-  .lens{position:absolute;left:-42px;bottom:-34px;width:206px;height:206px;border-radius:50%;
-    border:7px solid #fff;box-shadow:var(--shadow);overflow:hidden;background:var(--ink)}
-  .lens img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .lens:hover img{transform:scale(1.12)}
-  .lens::after{content:"";position:absolute;inset:10px;border:1.5px dashed rgba(255,255,255,.55);border-radius:50%;pointer-events:none}
-  .lens-tag{position:absolute;left:118px;bottom:-6px;background:var(--ink);color:#fff;font-size:12px;
-    font-weight:700;letter-spacing:.06em;padding:7px 14px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow)}
-  .chip{position:absolute;top:22px;right:-14px;background:#fff;border:1px solid var(--line);
-    border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);max-width:230px}
-  .chip b{font-family:var(--display);font-size:26px;font-weight:640;color:var(--teal);display:block;line-height:1}
-  .chip span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:5px}
-
-  /* ---------- trust bar ---------- */
-  .trust{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .trust .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;flex-wrap:wrap}
-  .trust .item{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--muted)}
-  .trust .item svg{color:var(--teal)}
-
-  /* ---------- sections ---------- */
-  section{padding:88px 0}
-  .sec-head{max-width:640px;margin-bottom:48px}
-  .sec-head h2{font-size:clamp(28px,3.2vw,40px);margin:14px 0 14px}
-
-  /* services grid */
-  .services{background:var(--paper)}
-  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .svc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;
-    display:flex;flex-direction:column;gap:14px;transition:transform .2s ease, box-shadow .2s ease}
-  .svc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .svc .icon{width:52px;height:52px;border-radius:14px;background:var(--teal-soft);display:grid;place-items:center;color:var(--teal)}
-  .svc h3{font-size:20px}
-  .svc p{font-size:14.5px;color:var(--muted);flex:1}
-  .svc a{font-weight:700;font-size:14px;color:var(--amber-deep);display:inline-flex;align-items:center;gap:6px}
-  .svc a:hover{gap:10px}
-  .svc a{transition:gap .18s ease}
-
-  /* microscope band — signature story */
-  .scopeband{background:var(--ink);color:#EAF5F9;position:relative;overflow:hidden}
-  .scopeband::before{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;
-    border-radius:50%;border:1.5px dashed rgba(255,255,255,.14)}
-  .scopeband::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;
-    border-radius:50%;border:1.5px dashed rgba(255,255,255,.10)}
-  .scopeband .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center;position:relative;z-index:1}
-  .scopeband .eyebrow{color:#8FD3E8}
-  .scopeband h2{color:#fff;font-size:clamp(28px,3.2vw,40px);margin:14px 0 18px}
-  .scopeband p{color:#B9D9E4;margin-bottom:16px}
-  .scope-photo{position:relative;justify-self:center}
-  .scope-photo .ring{width:min(380px,80vw);height:min(380px,80vw);border-radius:50%;overflow:hidden;
-    border:9px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -20px rgba(0,0,0,.55)}
-  .scope-photo .ring img{width:100%;height:100%;object-fit:cover}
-  .scope-photo .cross{position:absolute;inset:-18px;border-radius:50%;border:1.5px dashed rgba(143,211,232,.5);pointer-events:none}
-  .mag{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
-  .mag .m{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-    border-radius:14px;padding:14px 20px;min-width:140px}
-  .mag .m b{font-family:var(--display);font-size:26px;font-weight:640;color:#fff;display:block;line-height:1.1}
-  .mag .m span{font-size:12px;color:#8FB9C8;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
-  .mag .m.hot{background:rgba(200,137,43,.16);border-color:rgba(200,137,43,.5)}
-  .mag .m.hot b{color:#F3C878}
-
-  /* about */
-  .about{background:var(--teal-mist)}
-  .about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
-  .about-photo{position:relative;justify-self:center}
-  .about-photo .portrait{width:min(340px,78vw);border-radius:24px;box-shadow:var(--shadow);background:#fff}
-  .about-photo .ski{position:absolute;right:-36px;bottom:-36px;width:150px;height:150px;border-radius:50%;
-    object-fit:cover;border:6px solid #fff;box-shadow:var(--shadow)}
-  .about h2{font-size:clamp(28px,3.2vw,40px);margin:14px 0 18px}
-  .about p{color:var(--muted);margin-bottom:14px}
-  .pull{border-left:3px solid var(--amber);padding:6px 0 6px 18px;margin:22px 0;
-    font-family:var(--display);font-size:19px;font-style:italic;color:var(--ink);line-height:1.5}
-  .about .btn{margin-top:8px}
-
-  /* reviews */
-  .reviews{background:var(--paper)}
-  .featured-quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:38px 42px;box-shadow:var(--shadow);max-width:840px;margin:0 auto 44px;text-align:center}
-  .featured-quote .stars{font-size:18px;margin-bottom:14px}
-  .featured-quote p{font-family:var(--display);font-size:clamp(18px,2vw,23px);font-style:italic;line-height:1.55;margin-bottom:16px}
-  .featured-quote cite{font-style:normal;font-size:13.5px;font-weight:700;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--muted)}
-  .plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px;margin:0 auto}
-  .plat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-align:center;
-    transition:transform .2s, box-shadow .2s}
-  .plat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-  .plat .logo{width:46px;height:46px;border-radius:12px;margin:0 auto 14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px}
-  .plat.google .logo{background:linear-gradient(135deg,#4285F4,#34A853)}
-  .plat.yelp .logo{background:#D32323}
-  .plat.facebook .logo{background:#1877F2}
-  .plat h3{font-size:18px;font-family:var(--body);font-weight:700}
-  .plat .stars{margin:8px 0 4px}
-  .plat .count{font-size:13px;color:var(--muted);margin-bottom:16px}
-  .plat .links{display:flex;flex-direction:column;gap:8px}
-  .plat .links a{font-size:14px;font-weight:600}
-  .plat .links a.read{color:var(--teal)}
-  .plat .links a.read:hover{text-decoration:underline}
-  .plat .links a.leave{border:1.5px solid var(--line);border-radius:999px;padding:9px 0}
-  .plat .links a.leave:hover{border-color:var(--amber);color:var(--amber-deep)}
-
-  /* booking band */
-  .book{background:linear-gradient(120deg,var(--teal) 0%, var(--ink) 90%);color:#fff;text-align:center}
-  .book h2{color:#fff;font-size:clamp(28px,3.4vw,42px);margin-bottom:14px}
-  .book p{color:#BFE3EF;max-width:52ch;margin:0 auto 30px}
-  .book .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .book .row .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-  .book .row .btn-ghost:hover{border-color:#fff;color:#fff}
-  .book .note{margin-top:22px;font-size:13px;color:#8FB9C8}
-
-  /* footer */
-  footer{background:var(--ink);color:#B9D9E4;padding:72px 0 0;font-size:14.5px}
-  .foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1.1fr 1.3fr;gap:44px;padding-bottom:52px}
-  footer h4{color:#fff;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
-  footer .fbrand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-  footer .fbrand img{height:46px;background:#fff;border-radius:10px;padding:4px}
-  footer .fbrand span{font-family:var(--display);font-size:19px;color:#fff;font-weight:640}
-  footer p.mission{line-height:1.7;color:#8FB9C8}
-  footer ul{list-style:none}
-  footer ul li{margin-bottom:11px}
-  footer ul a:hover{color:#fff}
-  .nap div{margin-bottom:9px;display:flex;gap:9px;align-items:flex-start}
-  .nap svg{flex:none;margin-top:3px;opacity:.7}
-  .hourstable{margin-top:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
-  .hourstable div{display:flex;justify-content:space-between;margin-bottom:6px;max-width:220px}
-  .hourstable .closed{color:#F3C878;font-weight:600}
-  .fmap iframe{width:100%;height:220px;border:0;border-radius:14px;filter:saturate(.9)}
-  .socials{display:flex;gap:10px;margin-top:18px}
-  .socials a{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.2);
-    display:grid;place-items:center;color:#B9D9E4}
-  .socials a:hover{border-color:#fff;color:#fff}
-  .legal{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;
-    gap:14px;flex-wrap:wrap;font-size:13px;color:#6E93A1}
-
-  /* concept badge */
-  .concept{position:fixed;left:16px;bottom:16px;z-index:80;background:#fff;border:1px solid var(--line);
-    border-radius:999px;padding:8px 16px;font-size:12px;font-weight:700;color:var(--muted);
-    box-shadow:var(--shadow)}
-  .concept b{color:var(--teal)}
-
-  /* reveal on scroll */
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
-  .rv.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto}
-    .rv{opacity:1;transform:none;transition:none}
-    .btn,.svc,.plat,.lens img{transition:none}
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:1020px){
-    .svc-grid{grid-template-columns:repeat(2,1fr)}
-    .hero .wrap{grid-template-columns:1fr;gap:64px}
-    .hero-visual{max-width:560px}
-    .scopeband .wrap,.about .wrap{grid-template-columns:1fr;gap:56px}
-    .foot-grid{grid-template-columns:1fr 1fr}
-  }
-  @media (max-width:860px){
-    nav.main{display:none}
-    nav.main.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;
-      top:80px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);
-      padding:14px 20px;box-shadow:var(--shadow);gap:2px}
-    nav.main.open .dd{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;
-      border:0;padding:0 0 6px 14px}
-    .hamburger{display:block}
-    .nav-cta .login-link{display:none}
-  }
-  @media (max-width:640px){
-    section{padding:64px 0}
-    .svc-grid,.plat-grid{grid-template-columns:1fr}
-    .topbar .hours,.topbar .addr{display:none}
-    .lens{width:150px;height:150px;left:-10px;bottom:-26px}
-    .lens-tag{left:105px}
-    .chip{right:0;top:10px}
-    .about-photo .ski{right:0}
-    .foot-grid{grid-template-columns:1fr}
-    .featured-quote{padding:28px 22px}
-  }
-</style>
 </head>
 <body>
-
-<!-- ======= TOP UTILITY BAR ======= -->
+<!-- top utility bar -->
 <div class="topbar">
   <div class="wrap">
     <div class="left">
-      <a href="tel:5036353588">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3A19.5 19.5 0 0 1 5.2 13 19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .3 1.9.5 2.9.7a2 2 0 0 1 1.6 2z"/></svg>
-        (503) 635-3588</a>
-      <a class="addr" href="https://www.google.com/maps/place/Tichy+Dental+LLC/@45.3912526,-122.6463701,15z/data=!4m5!3m4!1s0x0:0xe9531c70db6f1a0b!8m2!3d45.3912526!4d-122.6463701" target="_blank" rel="noopener">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        18607 Willamette Dr., West Linn, OR 97068</a>
+      <a href="tel:5036353588"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3A19.5 19.5 0 0 1 5.2 13 19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .3 1.9.5 2.9.7a2 2 0 0 1 1.6 2z"/></svg> (503) 635-3588</a>
+      <a class="addr" href="https://www.google.com/maps/place/Tichy+Dental+LLC/@45.3912526,-122.6463701,15z/data=!4m5!3m4!1s0x0:0xe9531c70db6f1a0b!8m2!3d45.3912526!4d-122.6463701" target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> 18607 Willamette Dr., West Linn, OR 97068</a>
     </div>
     <span class="hours">Mon–Thu 8am–5pm · Fri Closed</span>
   </div>
 </div>
-
-<!-- ======= HEADER ======= -->
+<!-- header -->
 <header class="site" id="siteHeader">
   <div class="wrap navrow">
-    <a class="brand" href="#">
-      <img src="https://static.wixstatic.com/media/f9995c_fdb042e4d83a402087405db20db50a94~mv2.png/v1/crop/x_6,y_0,w_640,h_501/fill/w_323,h_252,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f9995c_fdb042e4d83a402087405db20db50a94~mv2.png" alt="Tichy Dental logo">
-      <span class="name">Tichy Dental<small>West Linn · Oregon</small></span>
+    <a class="brand" href="index.html" aria-label="Tichy Dental — home">
+      <img width="628" height="492" src="assets/img/f9995c_cca9f03d99c441ec81741650af77e7dd.webp" alt="Tichy Dental — cosmetic, family &amp; emergency dentistry">
     </a>
-
     <nav class="main" id="mainNav">
       <div>
         <a class="top" href="#services">Our Services ▾</a>
         <div class="dd">
           <span class="sub">General</span>
-          <a href="https://www.tichydental.com/general-dentistry">General &amp; Family Dentistry</a>
+          <a href="general-dentistry.html">General &amp; Family Dentistry</a>
           <span class="sub">Cosmetic</span>
-          <a href="https://www.tichydental.com/invisalign">Invisalign</a>
+          <a href="clarity-aligners.html">3M Clarity Aligners</a>
           <span class="sub">Restorative</span>
-          <a href="https://www.tichydental.com/cerec-crowns">CEREC Same-Day Crowns</a>
+          <a href="cerec-crowns.html">CEREC Same-Day Crowns</a>
           <span class="sub">Advanced Technology</span>
-          <a href="https://www.tichydental.com/microscopically-assisted-dentistry">Microscopic Dentistry</a>
+          <a href="microscopically-assisted-dentistry.html">Microscopic Dentistry</a>
         </div>
       </div>
       <div>
         <a class="top" href="#about">About ▾</a>
         <div class="dd">
-          <a href="https://www.tichydental.com/meet-dr-tichy">Meet Dr. Tichy</a>
-          <a href="https://www.tichydental.com/testimonials">Patient Reviews</a>
+          <a href="meet-dr-tichy.html">Meet Dr. Tichy</a>
+          <a href="testimonials.html">Patient Reviews</a>
         </div>
       </div>
       <div>
         <a class="top" href="#book">Patient Info ▾</a>
         <div class="dd">
-          <a href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1/Registration">New Patient Forms</a>
-          <a href="https://www.tichydental.com/insurance">Insurance &amp; Billing</a>
-          <a href="https://www.tichydental.com/faq">FAQ</a>
+          <a href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1/Registration" target="_blank" rel="noopener">New Patient Forms</a>
+          <a href="insurance.html">Insurance &amp; Billing</a>
+          <a href="faq.html">FAQ</a>
         </div>
       </div>
       <div><a class="top" href="#contact">Contact</a></div>
     </nav>
-
     <div class="nav-cta">
       <a class="login-link" href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1" target="_blank" rel="noopener">Patient Login</a>
       <a class="btn btn-amber" href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1/Appointment" target="_blank" rel="noopener">Book Appointment</a>
@@ -342,49 +77,42 @@
     </div>
   </div>
 </header>
+<main>
 
-<!-- ======= HERO ======= -->
+<!-- hero -->
 <div class="hero">
   <div class="wrap">
     <div class="rv">
       <span class="eyebrow">West Linn, Oregon <span class="dot">·</span> Microscope-Assisted Dentistry</span>
       <h1>Family &amp; cosmetic dentistry, <em>seen up close.</em></h1>
-      <p class="lede">Dr. Michael Tichy treats every patient under a dental operating microscope — precise, conservative, comfortable care for the whole family, from routine cleanings to same-day CEREC crowns and Invisalign.</p>
+      <p class="lede">Dr. Michael Tichy treats every patient under a dental operating microscope — precise, conservative, comfortable care for the whole family, from routine cleanings to same-day CEREC crowns and 3M Clarity clear aligners.</p>
       <div class="cta-row">
-        <a class="btn btn-amber" href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1/Appointment" target="_blank" rel="noopener">Book Appointment
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-amber" href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1/Appointment" target="_blank" rel="noopener">Book Appointment <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#services">Explore Our Services</a>
       </div>
-      <div class="rating"><span class="stars">★★★★★</span> Loved by West Linn, Lake Oswego &amp; Oregon City families</div>
+      <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> Rated 5.0 on Google by local families</div>
     </div>
-
     <div class="hero-visual rv">
-      <img class="office" loading="lazy"
-        src="https://static.wixstatic.com/media/f9995c_cca9f03d99c441ec81741650af77e7dd%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/f9995c_cca9f03d99c441ec81741650af77e7dd%7Emv2.jpg"
-        alt="Tichy Dental office in West Linn, Oregon">
+      <img width="1200" height="1014" class="office" loading="eager" fetchpriority="high" src="assets/img/f9995c_5be93b1d9ba34f959aafca2070564038.webp" alt="Tichy Dental office in West Linn, Oregon">
       <div class="chip"><b>1%</b><span>of general dentists use an operating microscope for every procedure. Dr. Tichy is one of them.</span></div>
       <div class="lens" title="Through the scope">
-        <img loading="lazy"
-          src="https://static.wixstatic.com/media/f9995c_fd8c251dab4d4b16b397c91b6fc6f6e5~mv2_d_2906_2906_s_4_2.jpg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f9995c_fd8c251dab4d4b16b397c91b6fc6f6e5~mv2_d_2906_2906_s_4_2.jpg"
-          alt="Dr. Michael Tichy practicing with a dental operating microscope">
+        <img width="1200" height="1200" loading="lazy" src="assets/img/f9995c_fd8c251dab4d4b16b397c91b6fc6f6e5.webp" alt="Dr. Michael Tichy practicing with a dental operating microscope">
       </div>
       <span class="lens-tag">Through the scope ↗</span>
     </div>
   </div>
 </div>
-
-<!-- ======= TRUST BAR ======= -->
+<!-- trust bar -->
 <div class="trust">
   <div class="wrap">
-    <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.3 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg> 5-Star Rated on Google</span>
-    <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4L12 14l-3-3"/></svg> Invisalign Provider</span>
+    <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.3 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg> 5.0 Stars on Google</span>
+    <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4L12 14l-3-3"/></svg> 3M Clarity Aligner Provider</span>
     <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> CEREC Same-Day Crowns</span>
     <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg> OHSU-Trained, D.M.D.</span>
-    <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Serving West Linn Since Day One</span>
+    <span class="item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Cosmetic · Family · Emergency</span>
   </div>
 </div>
-
-<!-- ======= SERVICES ======= -->
+<!-- services -->
 <section class="services" id="services">
   <div class="wrap">
     <div class="sec-head rv">
@@ -397,39 +125,34 @@
         <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 3-1.5 4-2 6s-.5 7-2.5 7S13 17 12 17s-.5 5-2.5 5S8 17 7 15s-2-3-2-6a7 7 0 0 1 7-7z"/></svg></div>
         <h3>CEREC Same-Day Crowns</h3>
         <p>A precision-milled ceramic crown designed, made, and placed in a single visit — no temporaries, no second appointment.</p>
-        <a href="https://www.tichydental.com/cerec-crowns">Learn more →</a>
+        <a href="cerec-crowns.html">Learn more →</a>
       </div>
       <div class="svc rv">
         <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15c2-1.5 4-2 9-2s7 .5 9 2"/><path d="M3 9c2 1.5 4 2 9 2s7-.5 9-2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg></div>
-        <h3>Invisalign</h3>
-        <p>Straighten your smile discreetly with clear aligners, planned digitally and checked under the scope at every step.</p>
-        <a href="https://www.tichydental.com/invisalign">Learn more →</a>
+        <h3>3M Clarity Aligners</h3>
+        <p>Straighten your smile discreetly with nearly invisible 3M Clarity clear aligners, scanned digitally and checked under the scope at every step.</p>
+        <a href="clarity-aligners.html">Learn more →</a>
       </div>
       <div class="svc rv">
         <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></div>
         <h3>Microscopic Dentistry</h3>
-        <p>Up to 20× magnification means earlier detection, smaller fillings, and more of your healthy tooth preserved.</p>
-        <a href="https://www.tichydental.com/microscopically-assisted-dentistry">Learn more →</a>
+        <p>Greater magnification means earlier detection, smaller fillings, and more of your healthy tooth preserved.</p>
+        <a href="microscopically-assisted-dentistry.html">Learn more →</a>
       </div>
       <div class="svc rv">
         <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8a5 5 0 1 0-10 0c0 5-3 6-3 9a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3c0-3-3-4-3-9z" transform="translate(0 -1)"/><path d="M9 21v-3a3 3 0 0 1 6 0v3"/></svg></div>
         <h3>General &amp; Family Care</h3>
         <p>Gentle cleanings, exams, and preventive care for adults and children — with your exam shown live on overhead TVs.</p>
-        <a href="https://www.tichydental.com/general-dentistry">Learn more →</a>
+        <a href="general-dentistry.html">Learn more →</a>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ======= MICROSCOPE BAND ======= -->
+<!-- microscope band -->
 <section class="scopeband">
   <div class="wrap">
     <div class="scope-photo rv">
-      <div class="ring">
-        <img loading="lazy"
-          src="https://static.wixstatic.com/media/f9995c_fd8c251dab4d4b16b397c91b6fc6f6e5~mv2_d_2906_2906_s_4_2.jpg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f9995c_fd8c251dab4d4b16b397c91b6fc6f6e5~mv2_d_2906_2906_s_4_2.jpg"
-          alt="The dental operating microscope at Tichy Dental in West Linn">
-      </div>
+      <div class="ring"><img width="1200" height="1200" loading="lazy" src="assets/img/f9995c_fd8c251dab4d4b16b397c91b6fc6f6e5.webp" alt="The dental operating microscope at Tichy Dental in West Linn"></div>
       <div class="cross"></div>
     </div>
     <div class="rv">
@@ -438,86 +161,55 @@
       <p>Most dentists work with loupes. Dr. Tichy belongs to the rare group of general dentists who perform every exam and procedure with a dental operating microscope — the gold standard of precision care.</p>
       <p>More magnification means decay is caught earlier, treatment stays conservative, and more of your healthy tooth is preserved. A camera on the scope streams to ceiling-mounted TVs, so you watch your own exam in real time while Dr. Tichy explains what he sees.</p>
       <div class="mag">
-        <div class="m"><b>~2.5×</b><span>Typical loupes</span></div>
-        <div class="m hot"><b>Up to 20×</b><span>The operating scope</span></div>
+        <div class="m hot"><b>1%</b><span>Of general dentists scope every procedure</span></div>
+        <div class="m"><b>LED</b><span>Built-in microscope light</span></div>
         <div class="m"><b>Live</b><span>Overhead exam TVs</span></div>
       </div>
+      <a class="btn btn-amber" href="microscopically-assisted-dentistry.html" style="margin-top:26px">How the microscope works →</a>
     </div>
   </div>
 </section>
-
-<!-- ======= ABOUT ======= -->
+<!-- about -->
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-photo rv">
-      <img class="portrait" loading="lazy"
-        src="https://static.wixstatic.com/media/f9995c_119eb82f2552473c929929d883e91d19~mv2.jpg/v1/crop/x_48,y_0,w_532,h_527/fill/w_520,h_515,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f9995c_119eb82f2552473c929929d883e91d19~mv2.jpg"
-        alt="Dr. Michael Tichy, D.M.D. — dentist in West Linn, Oregon">
-      <img class="ski" loading="lazy"
-        src="https://static.wixstatic.com/media/f9995c_edc524d14c1f4b72919e09828f1bd65d~mv2.jpg/v1/fill/w_353,h_279,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f9995c_edc524d14c1f4b72919e09828f1bd65d~mv2.jpg"
-        alt="Dr. Michael Tichy alpine ski racing">
+      <img width="629" height="527" class="portrait" loading="lazy" src="assets/img/f9995c_119eb82f2552473c929929d883e91d19.webp" alt="Dr. Michael Tichy, D.M.D. — dentist in West Linn, Oregon">
+      <img width="607" height="480" class="ski" loading="lazy" src="assets/img/f9995c_edc524d14c1f4b72919e09828f1bd65d.webp" alt="Dr. Michael Tichy alpine ski racing">
     </div>
     <div class="rv">
       <span class="eyebrow">Meet Your Dentist <span class="dot">·</span> Dr. Michael Tichy, D.M.D.</span>
       <h2>Precision has always been the job.</h2>
-      <p>Before dentistry, Dr. Tichy raced slalom for Canada — collecting national and international titles where success is measured in hundredths of a second. Today that same discipline shows up in a different arena: evidence-based, microscope-assisted dentistry.</p>
+      <p>Before dentistry, Dr. Tichy competed in professional alpine ski racing — collecting national and international titles where success is measured in hundredths of a second. Today that same discipline shows up in a different arena: evidence-based, microscope-assisted dentistry.</p>
       <p>A graduate of Oregon Health &amp; Science University and an Oregonian of twenty years, Dr. Tichy is a husband and father of two who loves treating adults and kids alike — and teaching families how oral health connects to whole-body health.</p>
       <div class="pull">"Less invasive, more comfortable, and honest about what you actually need — that's the promise of the microscope."</div>
-      <a class="btn btn-dark" href="https://www.tichydental.com/meet-dr-tichy">Meet Dr. Tichy &amp; the Team</a>
+      <a class="btn btn-dark" href="meet-dr-tichy.html">Meet Dr. Tichy</a>
     </div>
   </div>
 </section>
-
-<!-- ======= REVIEWS ======= -->
+<!-- reviews -->
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div class="sec-head rv" style="max-width:100%;text-align:center;margin-left:auto;margin-right:auto">
       <span class="eyebrow">Patient Stories</span>
       <h2>What our West Linn patients are saying</h2>
     </div>
-
     <div class="featured-quote rv">
       <div class="stars">★★★★★</div>
-      <p>"Dr. Tichy is an incredibly personable and warm dentist. He goes the extra mile to take care of his patients and to make certain that they are both comfortable and that they understand their care. I even entrusted him with my mom."</p>
-      <cite>— Ch.B., Tichy Dental patient</cite>
+      <p>"Dr. Tichy is an incredibly personable and warm dentist. He goes the extra mile to take great care of his patients and to make certain that they are both comfortable and that they understand their care. I even entrust him with my mom."</p>
+      <cite>— Christopher B., Google review</cite>
     </div>
-
     <div class="plat-grid">
-      <div class="plat google rv">
-        <div class="logo">G</div>
-        <h3>Google Reviews</h3>
-        <div class="stars">★★★★★</div>
-        <div class="count">Rated by local patients</div>
-        <div class="links">
-          <a class="read" href="https://www.google.com/maps/place/Tichy+Dental+LLC/@45.3912526,-122.6463701,15z/data=!4m5!3m4!1s0x0:0xe9531c70db6f1a0b!8m2!3d45.3912526!4d-122.6463701" target="_blank" rel="noopener">Read our reviews</a>
-          <a class="leave" href="https://www.google.com/maps/place/Tichy+Dental+LLC/@45.3912526,-122.6463701,15z/data=!4m5!3m4!1s0x0:0xe9531c70db6f1a0b!8m2!3d45.3912526!4d-122.6463701" target="_blank" rel="noopener">Leave a review</a>
-        </div>
-      </div>
-      <div class="plat yelp rv">
-        <div class="logo">Y</div>
-        <h3>Yelp</h3>
-        <div class="stars">★★★★★</div>
-        <div class="count">See what neighbors say</div>
-        <div class="links">
-          <a class="read" href="https://www.yelp.com/search?find_desc=Tichy+Dental&find_loc=West+Linn%2C+OR" target="_blank" rel="noopener">Read our reviews</a>
-          <a class="leave" href="https://www.yelp.com/search?find_desc=Tichy+Dental&find_loc=West+Linn%2C+OR" target="_blank" rel="noopener">Leave a review</a>
-        </div>
-      </div>
-      <div class="plat facebook rv">
-        <div class="logo">f</div>
-        <h3>Facebook</h3>
-        <div class="stars">★★★★★</div>
-        <div class="count">Recommended by our community</div>
-        <div class="links">
-          <a class="read" href="https://www.facebook.com/TichyDental/" target="_blank" rel="noopener">Read our reviews</a>
-          <a class="leave" href="https://www.facebook.com/TichyDental/" target="_blank" rel="noopener">Leave a review</a>
-        </div>
-      </div>
+      <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 rating on Google</div>
+        <div class="links"><a class="read" href="https://www.google.com/maps/place/Tichy+Dental+LLC/@45.3912526,-122.6463701,15z/data=!4m5!3m4!1s0x0:0xe9531c70db6f1a0b!8m2!3d45.3912526!4d-122.6463701" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="https://www.google.com/maps/place/Tichy+Dental+LLC/@45.3912526,-122.6463701,15z/data=!4m5!3m4!1s0x0:0xe9531c70db6f1a0b!8m2!3d45.3912526!4d-122.6463701" target="_blank" rel="noopener">Leave a review</a></div></div>
+      <div class="plat yelp rv"><div class="logo">Y</div><h3>Yelp</h3><div class="count">See what neighbors say</div>
+        <div class="links"><a class="read" href="https://www.yelp.com/search?find_desc=Tichy+Dental&find_loc=West+Linn%2C+OR" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="https://www.yelp.com/search?find_desc=Tichy+Dental&find_loc=West+Linn%2C+OR" target="_blank" rel="noopener">Leave a review</a></div></div>
+      <div class="plat facebook rv"><div class="logo">f</div><h3>Facebook</h3><div class="count">Recommendations from our community</div>
+        <div class="links"><a class="read" href="https://www.facebook.com/TichyDental/" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="https://www.facebook.com/TichyDental/" target="_blank" rel="noopener">Leave a review</a></div></div>
     </div>
+    <div style="text-align:center;margin-top:34px"><a class="btn btn-ghost" href="testimonials.html">See all patient testimonials →</a></div>
   </div>
 </section>
-
-<!-- ======= BOOKING BAND ======= -->
+<!-- booking band -->
 <section class="book" id="book">
   <div class="wrap rv">
     <span class="eyebrow" style="color:#F3C878">Ready When You Are</span>
@@ -531,15 +223,14 @@
     <div class="note">Prefer to call? We'd love to hear from you: (503) 635-3588</div>
   </div>
 </section>
-
-<!-- ======= FOOTER ======= -->
+</main>
+<!-- footer -->
 <footer id="contact">
   <div class="wrap">
     <div class="foot-grid">
       <div>
         <div class="fbrand">
-          <img src="https://static.wixstatic.com/media/f9995c_fdb042e4d83a402087405db20db50a94~mv2.png/v1/crop/x_6,y_0,w_640,h_501/fill/w_323,h_252,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f9995c_fdb042e4d83a402087405db20db50a94~mv2.png" alt="Tichy Dental logo">
-          <span>Tichy Dental</span>
+          <img width="628" height="492" src="assets/img/f9995c_cca9f03d99c441ec81741650af77e7dd.webp" alt="Tichy Dental logo">
         </div>
         <p class="mission">Gentle, microscope-assisted dentistry for families in West Linn, Lake Oswego, Oregon City, and Marylhurst.</p>
         <div class="socials">
@@ -549,17 +240,17 @@
         </div>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h2>Quick Links</h2>
         <ul>
-          <li><a href="https://www.tichydental.com/general-dentistry">Our Services</a></li>
-          <li><a href="https://www.tichydental.com/meet-dr-tichy">About Us</a></li>
-          <li><a href="https://www.tichydental.com/insurance">Insurance</a></li>
-          <li><a href="https://www.tichydental.com/testimonials">Testimonials</a></li>
+          <li><a href="general-dentistry.html">Our Services</a></li>
+          <li><a href="meet-dr-tichy.html">About Us</a></li>
+          <li><a href="insurance.html">Insurance</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="https://tch.identalcloud.com/TichyDental/Patient/_practice/1" target="_blank" rel="noopener">Patient Portal</a></li>
         </ul>
       </div>
       <div>
-        <h4>Visit Us</h4>
+        <h2>Visit Us</h2>
         <div class="nap">
           <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>18607 Willamette Dr.<br>West Linn, OR 97068</span></div>
           <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3A19.5 19.5 0 0 1 5.2 13 19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .3 1.9.5 2.9.7a2 2 0 0 1 1.6 2z"/></svg><a href="tel:5036353588">(503) 635-3588</a></div>
@@ -572,36 +263,22 @@
         </div>
       </div>
       <div class="fmap">
-        <h4>Find Us</h4>
-        <iframe title="Map to Tichy Dental, 18607 Willamette Dr., West Linn, OR"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Tichy+Dental+LLC,+18607+Willamette+Dr,+West+Linn,+OR+97068&output=embed"></iframe>
+        <h2>Find Us</h2>
+        <div class="mapfacade" id="mapFacade" role="button" tabindex="0"
+             data-src="https://www.google.com/maps?q=Tichy+Dental+LLC,+18607+Willamette+Dr,+West+Linn,+OR+97068&output=embed">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <strong>Load interactive map</strong>
+          <small>18607 Willamette Dr., West Linn, OR 97068</small>
+        </div>
       </div>
     </div>
     <div class="legal">
       <span>© 2026 Tichy Dental LLC · West Linn, Oregon</span>
-      <span>Design concept — not a live site</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="accessibility.html">Accessibility</a></span>
     </div>
   </div>
 </footer>
 
-<div class="concept">Concept by <b>Rainman Studio</b></div>
-
-<script>
-  // sticky header shadow
-  const header = document.getElementById('siteHeader');
-  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), {passive:true});
-
-  // mobile nav
-  const nav = document.getElementById('mainNav');
-  document.getElementById('hamburger').addEventListener('click', () => nav.classList.toggle('open'));
-  nav.addEventListener('click', e => { if (e.target.tagName === 'A') nav.classList.remove('open'); });
-
-  // scroll reveals
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
-  }, {threshold:.14});
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
-</script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
