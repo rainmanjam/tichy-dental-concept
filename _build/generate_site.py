@@ -83,6 +83,7 @@ def header(is_home):
         <a class="top" href="''' + abt + '''">About ▾</a>
         <div class="dd">
           <a href="meet-dr-tichy.html">Meet Dr. Tichy</a>
+          <a href="meet-dr-tichy.html#team">Our Team</a>
           <a href="testimonials.html">Patient Reviews</a>
         </div>
       </div>
@@ -319,7 +320,7 @@ home_body = TOPBAR + header(True) + '''
       <p>Before dentistry, Dr. Tichy competed in professional alpine ski racing — collecting national and international titles where success is measured in hundredths of a second. Today that same discipline shows up in a different arena: evidence-based, microscope-assisted dentistry.</p>
       <p>A graduate of Oregon Health &amp; Science University and an Oregonian of twenty years, Dr. Tichy is a husband and father of two who loves treating adults and kids alike — and teaching families how oral health connects to whole-body health.</p>
       <div class="pull">"Less invasive, more comfortable, and honest about what you actually need — that's the promise of the microscope."</div>
-      <a class="btn btn-dark" href="meet-dr-tichy.html">Meet Dr. Tichy</a>
+      <a class="btn btn-dark" href="meet-dr-tichy.html#team">Meet Dr. Tichy &amp; the Team</a>
     </div>
   </div>
 </section>
@@ -500,6 +501,37 @@ PAGES["microscopically-assisted-dentistry.html"] = shell(
     "Microscopically assisted dentistry is the gold standard of care. Dr. Tichy uses a dental operating microscope for every procedure at Tichy Dental.",
     micro_body)
 
+# ---------------- TEAM (6 slots, data in team.json) ----------------
+SILHOUETTE = ('<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">'
+              '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>')
+
+def team_section():
+    team = json.load(open(os.path.join(HERE, "team.json"), encoding="utf-8"))
+    def _esc(s): return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace('"', "&quot;")
+    cards = ""
+    for m in team:
+        if m.get("name"):
+            photo = ('<img class="photo" src="' + m["photo"] + '" alt="' + _esc(m["name"]) + '" loading="lazy">'
+                     if m.get("photo") else '<div class="photo empty" aria-hidden="true">' + SILHOUETTE + '</div>')
+            cards += ('      <article class="member rv">' + photo + '<div class="body"><span class="role">' + _esc(m.get("role")) +
+                      '</span><h3>' + _esc(m["name"]) + '</h3><p>' + _esc(m.get("bio")) + '</p></div></article>\n')
+        else:   # empty slot: placeholder card until a photo and bio are added
+            cards += ('      <article class="member empty rv"><div class="photo empty" aria-hidden="true">' + SILHOUETTE + '</div>'
+                      '<div class="body"><span class="role">Coming soon</span><h3>Team member</h3>'
+                      '<p>Photo and bio coming soon.</p></div></article>\n')
+    return """<section class="team" id="team">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The People Behind Your Smile</span>
+      <h2>Meet the team</h2>
+      <p class="lede">The friendly faces who will greet you, care for your teeth, and look after your whole family.</p>
+    </div>
+    <div class="team-grid">
+""" + cards + """    </div>
+  </div>
+</section>
+"""
+
 # ---------------- MEET DR TICHY ----------------
 meet_body = TOPBAR + header(False) + subhero(
     "Meet Your Dentist", "Meet Dr. Michael Tichy, D.M.D.",
@@ -522,7 +554,7 @@ meet_body = TOPBAR + header(False) + subhero(
     </div>
   </div>
 </section>
-''' + book_band() + FOOTER
+''' + team_section() + book_band() + FOOTER
 PAGES["meet-dr-tichy.html"] = shell(
     "Meet Dr. Michael Tichy, D.M.D. | Tichy Dental, West Linn OR",
     "Meet Dr. Michael Tichy, D.M.D. — OHSU-trained, microscope-assisted dentist and former alpine ski racer serving families in West Linn, Oregon.",

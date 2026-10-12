@@ -130,6 +130,20 @@ img{height:auto}
 /* footer legal links */
 .legal a{text-decoration:underline;text-underline-offset:2px}
 .legal a:hover{color:#fff}
+/* team section (6 slots from _build/team.json) */
+.team{background:var(--teal-mist)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.member{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.member .photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;background:var(--teal-soft)}
+.member .photo.empty{display:grid;place-items:center;color:#8FAFBA}
+.member .body{padding:20px 22px 24px}
+.member .role{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.member h3{font-size:20px;margin:6px 0 8px}
+.member p{font-size:14.5px;color:var(--muted)}
+.member.empty{border-style:dashed}
+.member.empty h3{color:var(--muted)}
+@media (max-width:1020px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .team-grid{grid-template-columns:1fr} }
 /* lighter footer legal text for contrast on the dark footer */
 .legal{color:#9FC2CE}
 /* footer column headings are now <h2> (keep the small uppercase look) */
