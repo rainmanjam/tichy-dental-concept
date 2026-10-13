@@ -12,7 +12,9 @@ else:
     full = open(css_path, encoding="utf-8").read()     # later runs: recover base from existing site.css
     base_css = full.split("\n/* ===========", 1)[0].strip()
 
-# Gate scroll-reveal behind a JS-added class so content is NEVER hidden without JS
+# Gate scroll-reveal behind a JS-added class so content is NEVER hidden without JS.
+# Collapse any prefixes left by earlier runs first, so re-running stays idempotent.
+base_css = re.sub(r"(?:html\.js-anim )+\.rv", ".rv", base_css)
 base_css = base_css.replace(
     ".rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}",
     "html.js-anim .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}")
@@ -144,6 +146,23 @@ img{height:auto}
 .member.empty h3{color:var(--muted)}
 @media (max-width:1020px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:640px){ .team-grid{grid-template-columns:1fr} }
+/* skip link + visible keyboard focus */
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;transition:top .15s}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--amber-deep);outline-offset:3px;border-radius:6px}
+.scopeband a:focus-visible,.book a:focus-visible,footer a:focus-visible,footer [tabindex]:focus-visible,.topbar a:focus-visible{outline-color:#F3C878}
+main:focus{outline:none}
+/* small print */
+.fine{font-size:12.5px;color:#9FC2CE;margin-top:12px;line-height:1.5;max-width:240px}
+.ins-updated{font-size:13px;color:var(--muted);margin-top:14px}
+/* emergency page */
+.em-alert{background:#FFF4E5;border:1px solid #E9BE78;border-radius:16px;padding:18px 22px;margin:0 0 22px;color:var(--ink);line-height:1.6}
+.em-alert strong{display:block;font-size:16.5px;margin-bottom:4px}
+.em-call{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 30px}
+/* keep the header CTA on one line on phones */
+.nav-cta .btn{white-space:nowrap}
+@media (max-width:480px){ .nav-cta .btn{font-size:14px;padding:11px 16px} .nav-cta{gap:8px} }
+.nowrap{white-space:nowrap}
 /* lighter footer legal text for contrast on the dark footer */
 .legal{color:#9FC2CE}
 /* footer column headings are now <h2> (keep the small uppercase look) */
@@ -175,7 +194,9 @@ footer h2{color:#fff;font-size:13px;font-weight:700;letter-spacing:.16em;text-tr
 os.makedirs(os.path.join(PROJECT, "assets", "css"), exist_ok=True)
 os.makedirs(os.path.join(PROJECT, "assets", "js"), exist_ok=True)
 with open(os.path.join(PROJECT, "assets", "css", "site.css"), "w", encoding="utf-8") as f:
-    f.write(base_css + "\n" + COMPONENTS)
+    fonts_css = os.path.join(PROJECT, "assets", "fonts", "fonts.css")
+    font_faces = open(fonts_css, encoding="utf-8").read() if os.path.exists(fonts_css) else ""
+    f.write(base_css + "\n" + COMPONENTS + "\n" + font_faces)
 
 JS = """// Tichy Dental — shared site behaviour (null-safe across all pages)
 (function () {
@@ -183,16 +204,30 @@ JS = """// Tichy Dental — shared site behaviour (null-safe across all pages)
   document.documentElement.classList.add('js-anim');
   var header = document.getElementById('siteHeader');
   if (header) {
+    var ticking = false;
     addEventListener('scroll', function () {
-      header.classList.toggle('scrolled', scrollY > 8);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        header.classList.toggle('scrolled', scrollY > 8);
+        ticking = false;
+      });
     }, { passive: true });
   }
   var nav = document.getElementById('mainNav');
   var burger = document.getElementById('hamburger');
   if (nav && burger) {
-    burger.addEventListener('click', function () { nav.classList.toggle('open'); });
+    var setMenu = function (open) {
+      nav.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    burger.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
     nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') nav.classList.remove('open');
+      if (e.target.tagName === 'A') setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); burger.focus(); }
     });
   }
   if ('IntersectionObserver' in window) {

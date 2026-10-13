@@ -27,6 +27,18 @@ TW    = "https://twitter.com/MichaelTichyDMD"
 YELP  = "https://www.yelp.com/search?find_desc=Tichy+Dental&find_loc=West+Linn%2C+OR"
 CLARITY = "https://www.solventum.com/en-us/home/"   # maker of 3M Clarity Aligners (3M Oral Care is now Solventum)
 ALIGN_PAGE = "clarity-aligners.html"
+
+# ---- launch / profile settings (edit these) ----
+LIVE = False                  # False = GitHub Pages preview (noindex, assets from GitHub). True = production on tichydental.com
+YELP_URL = "https://www.yelp.com/biz/tichy-dental-west-linn"
+GOOGLE_REVIEW_URL = ""        # Google Business Profile "Ask for reviews" link (falls back to the Maps listing)
+NPP_URL = ""                  # link to the practice's HIPAA Notice of Privacy Practices (PDF or page)
+SHOW_EMPTY_TEAM_SLOTS = False # True shows "coming soon" cards for unfilled team slots
+GOOGLE_CID_URL = "https://maps.google.com/?cid=" + str(int("e9531c70db6f1a0b", 16))
+DIRECTIONS = "https://www.google.com/maps/dir/?api=1&destination=Tichy+Dental+LLC,+18607+Willamette+Dr,+West+Linn,+OR+97068"
+if YELP_URL:
+    YELP = YELP_URL
+GREVIEW = GOOGLE_REVIEW_URL or MAPS
 JADA  = "https://jada.ada.org/article/S0002-8177(14)63733-8/fulltext"
 MICRO1 = "https://www.oralhealthgroup.com/features/the-value-of-the-dental-operating-microscope-in-restorative-dentistry-axiomatic-or-absurd/"
 MICRO2 = "https://www.globalsurgical.com/microscope-benefits.html"
@@ -71,6 +83,7 @@ def header(is_home):
         <div class="dd">
           <span class="sub">General</span>
           <a href="general-dentistry.html">General &amp; Family Dentistry</a>
+          <a href="emergency-dentist.html">Emergency Dental Care</a>
           <span class="sub">Cosmetic</span>
           <a href="clarity-aligners.html">3M Clarity Aligners</a>
           <span class="sub">Restorative</span>
@@ -99,8 +112,8 @@ def header(is_home):
     </nav>
     <div class="nav-cta">
       <a class="login-link" href="''' + LOGIN + '''" target="_blank" rel="noopener">Patient Login</a>
-      <a class="btn btn-amber" href="''' + APPT + '''" target="_blank" rel="noopener">Book Appointment</a>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
+      <a class="btn btn-amber" href="''' + APPT + '''" target="_blank" rel="noopener">Request Appointment</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mainNav" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
@@ -111,10 +124,10 @@ def book_band():
 <section class="book" id="book">
   <div class="wrap rv">
     <span class="eyebrow" style="color:#F3C878">Ready When You Are</span>
-    <h2>Book your appointment online</h2>
-    <p>Request a visit, register as a new patient, and sign consent forms — all through our secure patient portal, on your schedule.</p>
+    <h2>Request your appointment online</h2>
+    <p>Request a visit, register as a new patient, and sign consent forms — all through our secure patient portal, on your schedule. Our front desk will follow up to confirm your appointment time.</p>
     <div class="row">
-      <a class="btn btn-amber" href="''' + APPT + '''" target="_blank" rel="noopener">Book Appointment</a>
+      <a class="btn btn-amber" href="''' + APPT + '''" target="_blank" rel="noopener">Request Appointment</a>
       <a class="btn btn-ghost" href="''' + REG + '''" target="_blank" rel="noopener">New Patient Forms</a>
       <a class="btn btn-ghost" href="''' + LOGIN + '''" target="_blank" rel="noopener">Patient Login</a>
     </div>
@@ -142,6 +155,7 @@ FOOTER = '''<!-- footer -->
         <h2>Quick Links</h2>
         <ul>
           <li><a href="general-dentistry.html">Our Services</a></li>
+          <li><a href="emergency-dentist.html">Dental Emergencies</a></li>
           <li><a href="meet-dr-tichy.html">About Us</a></li>
           <li><a href="insurance.html">Insurance</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
@@ -151,7 +165,7 @@ FOOTER = '''<!-- footer -->
       <div>
         <h2>Visit Us</h2>
         <div class="nap">
-          <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>18607 Willamette Dr.<br>West Linn, OR 97068</span></div>
+          <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>18607 Willamette Dr.<br>West Linn, OR 97068<br><a href="''' + DIRECTIONS + '''" target="_blank" rel="noopener">Get directions &rarr;</a></span></div>
           <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3A19.5 19.5 0 0 1 5.2 13 19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c1 .3 1.9.5 2.9.7a2 2 0 0 1 1.6 2z"/></svg><a href="tel:5036353588">(503) 635-3588</a></div>
           <div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><a href="mailto:info@tichydental.com">info@tichydental.com</a></div>
         </div>
@@ -160,6 +174,7 @@ FOOTER = '''<!-- footer -->
           <div><span>Friday</span><span class="closed">Closed</span></div>
           <div><span>Sat – Sun</span><span class="closed">Closed</span></div>
         </div>
+        <p class="fine">Please don't email health information. Use the secure patient portal instead.</p>
       </div>
       <div class="fmap">
         <h2>Find Us</h2>
@@ -181,7 +196,7 @@ FOOTER = '''<!-- footer -->
 
 def shell(title, desc, body):
     # wrap everything between the header and the footer in a single <main> landmark
-    body = body.replace("</header>", "</header>\n<main>", 1)
+    body = body.replace("</header>", "</header>\n<main id=\"main\" tabindex=\"-1\">", 1)
     body = body.replace("<!-- footer -->", "</main>\n<!-- footer -->", 1)
     return ('''<!DOCTYPE html>
 <html lang="en">
@@ -190,12 +205,13 @@ def shell(title, desc, body):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>''' + title + '''</title>
 <meta name="description" content="''' + desc + '''">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,560;9..144,640&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 ''' + body + '''
 <script src="assets/js/site.js"></script>
 </body>
@@ -225,7 +241,7 @@ home_body = TOPBAR + header(True) + '''
       <h1>Family &amp; cosmetic dentistry, <em>seen up close.</em></h1>
       <p class="lede">Dr. Michael Tichy treats every patient under a dental operating microscope — precise, conservative, comfortable care for the whole family, from routine cleanings to same-day CEREC crowns and 3M Clarity clear aligners.</p>
       <div class="cta-row">
-        <a class="btn btn-amber" href="''' + APPT + '''" target="_blank" rel="noopener">Book Appointment <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-amber" href="''' + APPT + '''" target="_blank" rel="noopener">Request Appointment <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#services">Explore Our Services</a>
       </div>
       <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span> Rated 5.0 on Google by local families</div>
@@ -338,7 +354,7 @@ home_body = TOPBAR + header(True) + '''
     </div>
     <div class="plat-grid">
       <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 rating on Google</div>
-        <div class="links"><a class="read" href="''' + MAPS + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + MAPS + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
+        <div class="links"><a class="read" href="''' + MAPS + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + GREVIEW + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
       <div class="plat yelp rv"><div class="logo">Y</div><h3>Yelp</h3><div class="count">See what neighbors say</div>
         <div class="links"><a class="read" href="''' + YELP + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + YELP + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
       <div class="plat facebook rv"><div class="logo">f</div><h3>Facebook</h3><div class="count">Recommendations from our community</div>
@@ -357,7 +373,7 @@ PAGES["index.html"] = shell(
 svc_items = [
  ("01","Comprehensive Dental Exams","A ceiling-mounted HD TV connected to the dental microscope lets patients experience exactly what Dr. Tichy observes during the examination.", None),
  ("02","Dental Fillings / Restorations","Dr. Tichy offers mercury-free fillings. Watch overhead as he restores teeth with tooth-colored composite restorative material.", None),
- ("03","Emergency Dentistry","We provide emergency dental care — here to lessen your dental pain or triage true emergency accidents that may require more definitive treatment.", None),
+ ("03","Emergency Dentistry","We provide emergency dental care — here to lessen your dental pain or triage true emergency accidents that may require more definitive treatment.", "emergency-dentist.html"),
  ("04","Crown, Bridge &amp; CEREC","Dr. Tichy proudly offers same-day crowns. With CEREC we provide a wide variety of crowns — single-unit to multi-tooth bridges that restore edentulous areas of the arch.", "cerec-crowns.html"),
  ("05","Routine &amp; Surgical Extractions","Extractions can be stressful. Dr. Tichy and his staff help you through it, performing most extractions in-house and referring complex cases best suited for specialists.", None),
  ("06","Dental Hygiene","Regular prophylaxis cleanings help prevent gingivitis, and deeper scaling and root planing help eliminate periodontal disease and restore healthy gingival tissue.", None),
@@ -515,7 +531,7 @@ def team_section():
                      if m.get("photo") else '<div class="photo empty" aria-hidden="true">' + SILHOUETTE + '</div>')
             cards += ('      <article class="member rv">' + photo + '<div class="body"><span class="role">' + _esc(m.get("role")) +
                       '</span><h3>' + _esc(m["name"]) + '</h3><p>' + _esc(m.get("bio")) + '</p></div></article>\n')
-        else:   # empty slot: placeholder card until a photo and bio are added
+        elif SHOW_EMPTY_TEAM_SLOTS:   # empty slot: placeholder card until a photo and bio are added
             cards += ('      <article class="member empty rv"><div class="photo empty" aria-hidden="true">' + SILHOUETTE + '</div>'
                       '<div class="body"><span class="role">Coming soon</span><h3>Team member</h3>'
                       '<p>Photo and bio coming soon.</p></div></article>\n')
@@ -568,7 +584,7 @@ for r in reviews:
     if r["name"] == "Christopher B.":   # already featured above the grid
         continue
     rev_html += ('      <figure class="rev rv"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>'
-                 '<blockquote>' + esc(r["text"]) + '</blockquote><figcaption>— ' + esc(r["name"]) + ' · Google review</figcaption></figure>\n')
+                 '<blockquote>' + esc(r["text"]) + '</blockquote><figcaption>— ' + esc(r["name"]) + ' · Google review' + ((' · ' + r['date']) if r.get('date') else '') + '</figcaption></figure>\n')
 test_body = TOPBAR + header(False) + subhero(
     "Patient Stories", "Patient Testimonials",
     "Real reviews from Tichy Dental patients across West Linn and the surrounding communities.",
@@ -586,7 +602,7 @@ test_body = TOPBAR + header(False) + subhero(
     </div>
     <div class="plat-grid" style="margin-bottom:46px">
       <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 rating on Google</div>
-        <div class="links"><a class="read" href="''' + MAPS + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + MAPS + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
+        <div class="links"><a class="read" href="''' + MAPS + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + GREVIEW + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
       <div class="plat yelp rv"><div class="logo">Y</div><h3>Yelp</h3><div class="count">See what neighbors say</div>
         <div class="links"><a class="read" href="''' + YELP + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + YELP + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
       <div class="plat facebook rv"><div class="logo">f</div><h3>Facebook</h3><div class="count">Recommendations from our community</div>
@@ -636,6 +652,7 @@ ins_body = TOPBAR + header(False) + subhero(
       <p style="margin:0 0 10px"><strong>Don't see your plan?</strong> We accept many more insurance companies — please call us at <a class="inline" href="tel:5036353588">(503) 635-3588</a> to ask if we accept yours.</p>
       <p style="margin:0">Note: Dentemax is not an insurance company itself, but has hundreds of insurance companies under its umbrella — so call and ask if you may be covered under the Dentemax umbrella.</p>
     </div>
+    <p class="ins-updated">List last updated October 2026. Coverage and benefits vary by plan, so please also confirm your benefits with your insurance company.</p>
   </div>
 </section>
 ''' + book_band() + FOOTER
@@ -645,7 +662,9 @@ PAGES["insurance.html"] = shell(
     ins_body)
 
 # ---------------- FAQ ----------------
+FAQ_DATA = []
 def qa(q, answer_html):
+    FAQ_DATA.append((q, answer_html))
     return '      <details class="qa"><summary>'+q+'</summary><div class="a">'+answer_html+'</div></details>\n'
 faq_items = ""
 faq_items += qa("How can I schedule an appointment with Tichy Dental?",
@@ -660,6 +679,10 @@ faq_items += qa("What do the overhead monitors during the exam mean?",
     '<p>Dr. Tichy is part of the rare 1% of general dentists who use a microscope for all procedures, which allows him to connect an HD camera. The camera feeds directly to overhead monitors for real-time video — so you can see and watch everything the doctor sees. During this time the doctor reviews findings, takes intra-oral pictures for later review, and explains the best options to you.</p>')
 faq_items += qa("Can I expect a cleaning during my first appointment?",
     '<p>The doctor makes every attempt to provide a cleaning. However, not every patient has healthy gums and can receive a simple prophy cleaning. Some patients need considerable treatment planning; those who present with periodontal disease may need extensive planning and prior insurance approval for deep cleanings (scaling and root planing).</p>')
+faq_items += qa("Do you see children?",
+    '<p>Yes. Dr. Tichy cares for adults and children alike, and our team works to keep young patients comfortable. Call <a class="inline" href="tel:5036353588">(503) 635-3588</a> to book visits for the whole family.</p>')
+faq_items += qa("What should I do in a dental emergency?",
+    '<p>Call us right away at <a class="inline" href="tel:5036353588">(503) 635-3588</a> during office hours (Monday–Thursday, 8am–5pm). Our <a class="inline" href="emergency-dentist.html">Emergency Dental Care</a> page explains what to do for a knocked-out tooth, toothache or broken tooth, and when to go to an emergency room instead.</p>')
 faq_items += qa("What insurance does Tichy Dental accept?",
     '<p>We accept many insurance companies and are preferred providers for: Delta Dental/Moda, Regence BlueCross BlueShield, Dentemax, MetLife, United Concordia, and Cigna. Please call us to ask if we accept your insurance. Dentemax is not an insurance company but has hundreds of insurance companies under its umbrella — so call and ask if you may be covered. See our <a class="inline" href="insurance.html">Insurance &amp; Billing</a> page for more.</p>')
 faq_body = TOPBAR + header(False) + subhero(
@@ -679,6 +702,42 @@ PAGES["faq.html"] = shell(
     "Frequently asked questions about Tichy Dental — scheduling, first visits, overhead monitors, cleanings, and accepted insurance.",
     faq_body)
 
+# ---------------- EMERGENCY DENTAL CARE ----------------
+emerg_body = TOPBAR + header(False) + subhero(
+    "Emergency Dental Care · West Linn", "Dental emergency? <em>Call us first.</em>",
+    "A broken tooth, sudden toothache, or knocked-out tooth? Call <span class='nowrap'>(503) 635-3588</span> and we'll help you with the next step.",
+    "Emergency Dental Care") + '''
+<section class="pagebody tight">
+  <div class="wrap">
+    <div class="prose">
+      <div class="em-alert" role="note"><strong>Go to an emergency room or call 911</strong>if you have swelling that is spreading toward your eye or neck or making it hard to breathe or swallow, bleeding that won't stop, or a jaw injury from an accident or a blow to the head.</div>
+      <div class="em-call">
+        <a class="btn btn-amber" href="tel:5036353588">Call (503) 635-3588</a>
+        <a class="btn btn-ghost" href="''' + APPT + '''" target="_blank" rel="noopener">Request Appointment</a>
+      </div>
+      <p class="lead-para">We provide emergency dental care to relieve pain and to triage accidents that may need more definitive treatment. Call as early as you can and we'll do our best to see you quickly.</p>
+      <p>Our office is open Monday–Thursday, 8am–5pm. If a problem starts while we're closed and it isn't one of the situations above, call us first thing on our next business day.</p>
+      <h2>What to do until you see us</h2>
+      <h3>Knocked-out adult tooth</h3>
+      <p>Pick the tooth up by the crown (the chewing surface), not the root. If it's dirty, rinse it gently with water and don't scrub it. If you can, place it back in the socket and hold it there; otherwise keep it in a small container of milk. Call us right away, because the sooner you're seen, the better the chance of saving the tooth.</p>
+      <h3>Toothache</h3>
+      <p>Rinse with warm water and gently floss to remove anything caught between your teeth. A cold compress on the outside of your cheek can ease swelling. Don't put aspirin directly on the gum or tooth.</p>
+      <h3>Chipped or broken tooth</h3>
+      <p>Save any pieces, rinse your mouth with warm water, and use a cold compress to reduce swelling.</p>
+      <h3>Lost filling or crown</h3>
+      <p>Keep the crown if you have it and bring it with you. Avoid chewing on that side until we can see you.</p>
+      <h2>A patient's experience</h2>
+      <div class="pull">"I had broken a tooth and he was able to get me in first thing the next morning. Even though it was snowing and the roads were bad his staff still came in and took care of me." — Linda R., Google review</div>
+      <p class="ins-updated">This page is general information, not a diagnosis. If you're not sure whether it's an emergency, call us.</p>
+    </div>
+  </div>
+</section>
+''' + book_band() + FOOTER
+PAGES["emergency-dentist.html"] = shell(
+    "Emergency Dentist in West Linn, OR | Tichy Dental",
+    "Dental emergency in West Linn? Call Tichy Dental at (503) 635-3588. What to do for a knocked-out tooth, toothache or broken tooth, and when to go to the ER.",
+    emerg_body)
+
 # ---------------- LEGAL PAGES (drafts — review before publishing) ----------------
 DRAFT_NOTE = ''
 _OLD_DRAFT_NOTE = ('<p class="ins-note" style="margin:0 0 24px"><strong>Draft for review.</strong> '
@@ -693,13 +752,14 @@ privacy_body = TOPBAR + header(False) + subhero(
   <div class="wrap">
     <div class="prose">
       ''' + DRAFT_NOTE + '''
+      <p class="ins-updated" style="margin-top:0">Effective October 13, 2026 · Last updated October 13, 2026</p>
       <h2>Information we collect</h2>
       <p>This website does not collect personal or health information directly, and it does not use advertising or tracking cookies. Appointment requests, patient registration, and consent forms are completed through our secure patient portal, which is operated by our practice-management provider and protected under HIPAA.</p>
-      <p>If you call or email us, we use what you share only to respond to you and to provide care.</p>
+      <p>If you call or email us, we use what you share only to respond to you and to provide care. Please don't send medical details or other sensitive information by email; use the secure patient portal instead.</p>
       <h2>Third-party services</h2>
-      <p>Fonts load from Google Fonts. The office map loads from Google Maps only when you choose to open it. Links to Google, Yelp, Facebook, Instagram, X, and product manufacturers take you to sites governed by their own privacy policies.</p>
+      <p>Fonts are hosted on this website. The office map loads from Google Maps only when you choose to open it. Links to Google, Yelp, Facebook, Instagram, X, and product manufacturers take you to sites governed by their own privacy policies.</p>
       <h2>Your health information</h2>
-      <p>Our Notice of Privacy Practices explains how protected health information is used and disclosed under HIPAA. Ask our front desk for a copy, or call <a class="inline" href="tel:5036353588">(503) 635-3588</a>.</p>
+      <p>Our Notice of Privacy Practices explains how protected health information is used and disclosed under HIPAA. ''' + (('<a class="inline" href="' + NPP_URL + '" target="_blank" rel="noopener">Read the Notice of Privacy Practices</a>, or ask') if NPP_URL else 'Ask') + ''' our front desk for a copy, or call <a class="inline" href="tel:5036353588">(503) 635-3588</a>.</p>
       <h2>Contact</h2>
       <p>Questions about this policy: <a class="inline" href="mailto:info@tichydental.com">info@tichydental.com</a> · 18607 Willamette Dr., West Linn, OR 97068.</p>
     </div>
@@ -744,30 +804,67 @@ import re as _re
 from PIL import Image as _Image
 
 SITE = "https://www.tichydental.com"   # canonical domain; paths below are extensionless (/faq)
-ASSET_BASE = "https://rainmanjam.github.io/tichy-dental-concept"   # where the files are hosted now; change when the domain moves
+ASSET_BASE = SITE if LIVE else "https://rainmanjam.github.io/tichy-dental-concept"   # where the files are hosted
 
 def live_path(name):
     return "/" if name == "index.html" else "/" + name[:-5]
 
-JSONLD = json.dumps({
-    "@context": "https://schema.org",
-    "@type": "Dentist",
-    "name": "Tichy Dental",
-    "url": SITE + "/",
-    "telephone": "+1-503-635-3588",
-    "email": "info@tichydental.com",
-    "image": ASSET_BASE + "/assets/img/og-image.jpg",
-    "logo": ASSET_BASE + "/assets/img/apple-touch-icon.png",
-    "address": {"@type": "PostalAddress", "streetAddress": "18607 Willamette Dr.",
-                "addressLocality": "West Linn", "addressRegion": "OR",
-                "postalCode": "97068", "addressCountry": "US"},
-    "geo": {"@type": "GeoCoordinates", "latitude": 45.3912526, "longitude": -122.6463701},
-    "openingHoursSpecification": [{"@type": "OpeningHoursSpecification",
-                                   "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-                                   "opens": "08:00", "closes": "17:00"}],
-    "areaServed": ["West Linn", "Lake Oswego", "Oregon City"],
-    "sameAs": [FB, IG, TW],
-}, ensure_ascii=False)
+import html as _html, datetime as _dt
+TODAY = _dt.date.today().isoformat()
+DENTIST_ID = SITE + "/#dentist"
+DOCTOR_ID = SITE + "/meet-dr-tichy#dr-tichy"
+SERVICE_PAGES = {
+    "general-dentistry.html": "General & Family Dentistry",
+    "clarity-aligners.html": "3M Clarity Clear Aligners",
+    "cerec-crowns.html": "CEREC Same-Day Crowns",
+    "microscopically-assisted-dentistry.html": "Microscope-Assisted Dentistry",
+    "emergency-dentist.html": "Emergency Dental Care",
+}
+SAME_AS = [GOOGLE_CID_URL, FB, IG, TW] + ([YELP_URL] if YELP_URL else [])
+
+def page_schema(name, title, desc, url):
+    """One @graph per page: the practice, Dr. Tichy, the page itself, plus breadcrumb/service/FAQ where relevant."""
+    title, desc = _html.unescape(title), _html.unescape(desc)
+    graph = [
+        {"@type": "Dentist", "@id": DENTIST_ID, "name": "Tichy Dental", "url": SITE + "/",
+         "telephone": "+1-503-635-3588", "email": "info@tichydental.com",
+         "image": ASSET_BASE + "/assets/img/og-image.jpg",
+         "logo": ASSET_BASE + "/assets/img/apple-touch-icon.png",
+         "address": {"@type": "PostalAddress", "streetAddress": "18607 Willamette Dr.",
+                     "addressLocality": "West Linn", "addressRegion": "OR",
+                     "postalCode": "97068", "addressCountry": "US"},
+         "geo": {"@type": "GeoCoordinates", "latitude": 45.3912526, "longitude": -122.6463701},
+         "hasMap": GOOGLE_CID_URL,
+         "openingHoursSpecification": [{"@type": "OpeningHoursSpecification",
+                                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+                                        "opens": "08:00", "closes": "17:00"}],
+         "areaServed": ["West Linn", "Lake Oswego", "Oregon City"],
+         "sameAs": SAME_AS,
+         "founder": {"@id": DOCTOR_ID}, "employee": {"@id": DOCTOR_ID}},
+        {"@type": "Person", "@id": DOCTOR_ID, "name": "Dr. Michael Tichy", "honorificSuffix": "D.M.D.",
+         "jobTitle": "Dentist", "url": SITE + "/meet-dr-tichy",
+         "image": ASSET_BASE + "/assets/img/f9995c_119eb82f2552473c929929d883e91d19.webp",
+         "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Oregon Health & Science University"},
+                      {"@type": "CollegeOrUniversity", "name": "Portland State University"}],
+         "worksFor": {"@id": DENTIST_ID}},
+        {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": title,
+         "description": desc, "about": {"@id": DENTIST_ID}, "dateModified": TODAY},
+    ]
+    if name != "index.html":
+        graph[-1]["breadcrumb"] = {"@id": url + "#breadcrumb"}
+        graph.append({"@type": "BreadcrumbList", "@id": url + "#breadcrumb", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": title.split(" | ")[0], "item": url}]})
+    if name in SERVICE_PAGES:
+        graph.append({"@type": "Service", "name": SERVICE_PAGES[name], "serviceType": SERVICE_PAGES[name],
+                      "url": url, "provider": {"@id": DENTIST_ID}, "areaServed": "West Linn, OR"})
+    if name == "faq.html" and FAQ_DATA:
+        graph.append({"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [
+            {"@type": "Question", "name": _html.unescape(q),
+             "acceptedAnswer": {"@type": "Answer",
+                                "text": _re.sub(r"\s+", " ", _html.unescape(_re.sub(r"<[^>]+>", " ", a))).strip()}}
+            for q, a in FAQ_DATA]})
+    return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False).replace("</", "<\\/")
 
 def head_extras(name, html):
     title = _re.search(r"<title>(.*?)</title>", html).group(1)
@@ -783,7 +880,8 @@ def head_extras(name, html):
             '<meta property="og:url" content="' + url + '">\n'
             '<meta property="og:image" content="' + ASSET_BASE + '/assets/img/og-image.jpg">\n'
             '<meta name="twitter:card" content="summary_large_image">\n'
-            '<script type="application/ld+json">' + JSONLD + '</script>\n')
+            '<script type="application/ld+json">' + page_schema(name, title, desc, url) + '</script>\n'
+            + ('' if LIVE else '<meta name="robots" content="noindex">\n'))
 
 def img_size(path):
     full = os.path.join(PROJECT, path)
@@ -811,6 +909,15 @@ def fix_imgs(html):
             wh = img_size(src)
             if wh:
                 tag = tag.replace("<img ", '<img width="%d" height="%d" ' % wh, 1)
+        if "srcset=" not in tag and src.endswith(".webp") and "/insurers/" not in src:
+            w = img_size(src)[0]
+            if w > 900:   # add a 600px variant so phones don't download the 1200px file
+                small = src[:-5] + "-600.webp"
+                if not os.path.exists(os.path.join(PROJECT, small)):
+                    with _Image.open(os.path.join(PROJECT, src)) as im:
+                        im.resize((600, round(im.height * 600 / im.width)), _Image.LANCZOS).save(
+                            os.path.join(PROJECT, small), "WEBP", quality=80, method=6)
+                tag = tag.replace("<img ", '<img srcset="%s 600w, %s %dw" sizes="(max-width: 760px) 100vw, 50vw" ' % (small, src, w), 1)
         if 'class="office"' in tag:   # hero image is the LCP element — load it first
             tag = tag.replace('loading="lazy"', 'loading="eager" fetchpriority="high"')
         return tag
@@ -828,7 +935,7 @@ for name, htmlstr in PAGES.items():
 with open(os.path.join(PROJECT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for name in PAGES:
-        f.write("  <url><loc>" + SITE + live_path(name) + "</loc></url>\n")
+        f.write("  <url><loc>" + SITE + live_path(name) + "</loc><lastmod>" + TODAY + "</lastmod></url>\n")
     f.write("</urlset>\n")
 with open(os.path.join(PROJECT, "robots.txt"), "w", encoding="utf-8") as f:
     f.write("User-agent: *\nAllow: /\nDisallow: /_build/\n\nSitemap: " + SITE + "/sitemap.xml\n")

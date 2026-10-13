@@ -4,16 +4,30 @@
   document.documentElement.classList.add('js-anim');
   var header = document.getElementById('siteHeader');
   if (header) {
+    var ticking = false;
     addEventListener('scroll', function () {
-      header.classList.toggle('scrolled', scrollY > 8);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        header.classList.toggle('scrolled', scrollY > 8);
+        ticking = false;
+      });
     }, { passive: true });
   }
   var nav = document.getElementById('mainNav');
   var burger = document.getElementById('hamburger');
   if (nav && burger) {
-    burger.addEventListener('click', function () { nav.classList.toggle('open'); });
+    var setMenu = function (open) {
+      nav.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    burger.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
     nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') nav.classList.remove('open');
+      if (e.target.tagName === 'A') setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); burger.focus(); }
     });
   }
   if ('IntersectionObserver' in window) {

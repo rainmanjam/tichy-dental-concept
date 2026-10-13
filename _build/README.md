@@ -30,5 +30,17 @@ Paths are relative to the repo, so it works wherever the repo lives.
 
 ## Notes
 - Images live in `assets/img/` (site photos) and `assets/img/insurers/` (insurer logos).
-- Fonts (Fraunces + Figtree) load from Google Fonts CDN — the site is not fully offline.
-- These pages are a design concept, not the live site.
+- Fonts (Fraunces + Figtree) are self-hosted in `assets/fonts/`, so the site makes no Google Fonts requests.
+- The GitHub Pages copy is a preview of the redesign; tichydental.com is the production home.
+
+## Launch & profile settings (top of `generate_site.py`)
+| Setting | Now | What it does |
+|---|---|---|
+| `LIVE` | `False` | `False` = GitHub Pages preview: adds `noindex` and loads share images from GitHub. Set `True` when the site moves to tichydental.com. |
+| `YELP_URL` | set | Direct Yelp business page (used for review links and structured data). |
+| `GOOGLE_REVIEW_URL` | empty | Paste the Google Business Profile "Ask for reviews" link; until then "Leave a review" opens the Maps listing. |
+| `NPP_URL` | empty | Link to the practice's HIPAA Notice of Privacy Practices; adds a link on the Privacy page. |
+| `SHOW_EMPTY_TEAM_SLOTS` | `False` | `True` shows "coming soon" cards for unfilled slots in `team.json`. |
+
+Also in this folder: `WIX-HANDOFF.md` (Wix rebuild spec) and `wix-redirects.csv` (redirects to add in Wix).
+Fonts are self-hosted in `assets/fonts/` (Fraunces + Figtree, SIL Open Font License).
