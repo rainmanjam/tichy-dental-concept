@@ -90,3 +90,29 @@ URL — confirm it appears in the Redirect Manager, then test it on the live sit
 - [ ] Structured data passes Google's Rich Results Test
 - [ ] Sitemap submitted in Google Search Console and Bing Webmaster Tools
 - [ ] GitHub Pages preview kept `noindex` (or taken down)
+
+## 9. Contact / inquiry form (build with Wix Forms)
+Add a short **Wix Forms** form to the Contact section (footer area) and the Emergency page.
+The website must not collect health information, so keep it to contact details only.
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| Full name | Short text | Yes | |
+| Phone | Phone | Yes | |
+| Email | Email | No | |
+| Best time to reach you | Dropdown: Morning / Afternoon / Any time | No | |
+| Reason | Dropdown: New patient / Existing patient / Insurance question / Other | Yes | |
+| Message | Long text, max 300 characters | No | Placeholder: "Please don't include medical details." |
+| Consent | Checkbox | Yes | "I agree to be contacted by Tichy Dental by phone or email." |
+
+**Settings:** send submission notifications to info@tichydental.com; turn on Wix's spam protection;
+success message: "Thanks — our front desk will contact you during office hours (Mon–Thu, 8am–5pm)."
+Above the form, add: "For appointments, use **Request Appointment**. For a dental emergency, call (503) 635-3588."
+Do **not** add date-of-birth, insurance ID, symptoms or other health fields — those belong in the secure patient portal.
+Update the Privacy page to mention that the contact form collects name, phone, email and message.
+
+## 10. Reviews on Wix
+Show live Google reviews with a Google-reviews widget from the Wix App Market (the site already has
+**MyReviews** installed on the free tier), or show reviews the practice has permission to use.
+Google rating as of Oct 20, 2026: **5.0 from 152 reviews**. Direct "write a review" link:
+https://search.google.com/local/writereview?placeid=ChIJlUWZp4pzlVQRCxpv23AcU-k

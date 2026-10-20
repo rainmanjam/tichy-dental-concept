@@ -31,8 +31,9 @@ ALIGN_PAGE = "clarity-aligners.html"
 # ---- launch / profile settings (edit these) ----
 LIVE = False                  # False = GitHub Pages preview (noindex, assets from GitHub). True = production on tichydental.com
 YELP_URL = "https://www.yelp.com/biz/tichy-dental-west-linn"
-GOOGLE_REVIEW_URL = ""        # Google Business Profile "Ask for reviews" link (falls back to the Maps listing)
+GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJlUWZp4pzlVQRCxpv23AcU-k"   # opens Google's review form
 NPP_URL = ""                  # link to the practice's HIPAA Notice of Privacy Practices (PDF or page)
+PORTAL_PRIVACY_URL = "https://tch.identalcloud.com/TichyDental/Patient/_practice/1/PrivacyPolicy"   # practice's patient-portal privacy policy
 SHOW_EMPTY_TEAM_SLOTS = False # True shows "coming soon" cards for unfilled team slots
 GOOGLE_CID_URL = "https://maps.google.com/?cid=" + str(int("e9531c70db6f1a0b", 16))
 DIRECTIONS = "https://www.google.com/maps/dir/?api=1&destination=Tichy+Dental+LLC,+18607+Willamette+Dr,+West+Linn,+OR+97068"
@@ -353,7 +354,7 @@ home_body = TOPBAR + header(True) + '''
       <cite>— Christopher B., Google review</cite>
     </div>
     <div class="plat-grid">
-      <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 rating on Google</div>
+      <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 from 150+ Google reviews</div>
         <div class="links"><a class="read" href="''' + MAPS + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + GREVIEW + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
       <div class="plat yelp rv"><div class="logo">Y</div><h3>Yelp</h3><div class="count">See what neighbors say</div>
         <div class="links"><a class="read" href="''' + YELP + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + YELP + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
@@ -601,7 +602,7 @@ test_body = TOPBAR + header(False) + subhero(
       <h2>Find us on Google, Yelp &amp; Facebook</h2>
     </div>
     <div class="plat-grid" style="margin-bottom:46px">
-      <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 rating on Google</div>
+      <div class="plat google rv"><div class="logo">G</div><h3>Google Reviews</h3><div class="stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div><div class="count">5.0 from 150+ Google reviews</div>
         <div class="links"><a class="read" href="''' + MAPS + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + GREVIEW + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
       <div class="plat yelp rv"><div class="logo">Y</div><h3>Yelp</h3><div class="count">See what neighbors say</div>
         <div class="links"><a class="read" href="''' + YELP + '''" target="_blank" rel="noopener">Read our reviews</a><a class="leave" href="''' + YELP + '''" target="_blank" rel="noopener">Leave a review</a></div></div>
@@ -683,6 +684,12 @@ faq_items += qa("Do you see children?",
     '<p>Yes. Dr. Tichy cares for adults and children alike, and our team works to keep young patients comfortable. Call <a class="inline" href="tel:5036353588">(503) 635-3588</a> to book visits for the whole family.</p>')
 faq_items += qa("What should I do in a dental emergency?",
     '<p>Call us right away at <a class="inline" href="tel:5036353588">(503) 635-3588</a> during office hours (Monday–Thursday, 8am–5pm). Our <a class="inline" href="emergency-dentist.html">Emergency Dental Care</a> page explains what to do for a knocked-out tooth, toothache or broken tooth, and when to go to an emergency room instead.</p>')
+faq_items += qa("Is the office wheelchair accessible?",
+    '<p>Yes. Our office has a wheelchair-accessible entrance, parking and restroom. If you need any other assistance during your visit, let us know when you call.</p>')
+faq_items += qa("Where do I park?",
+    '<p>We have a parking lot at the office, including accessible parking. We\'re at 18607 Willamette Dr. in West Linn — <a class="inline" href="' + DIRECTIONS + '" target="_blank" rel="noopener">get directions</a>.</p>')
+faq_items += qa("What forms of payment do you accept?",
+    '<p>We accept credit cards, debit cards and contactless mobile payments, as well as many dental insurance plans (see <a class="inline" href="insurance.html">Insurance &amp; Billing</a>). For questions about your balance or payment options, call our front desk at <a class="inline" href="tel:5036353588">(503) 635-3588</a>.</p>')
 faq_items += qa("What insurance does Tichy Dental accept?",
     '<p>We accept many insurance companies and are preferred providers for: Delta Dental/Moda, Regence BlueCross BlueShield, Dentemax, MetLife, United Concordia, and Cigna. Please call us to ask if we accept your insurance. Dentemax is not an insurance company but has hundreds of insurance companies under its umbrella — so call and ask if you may be covered. See our <a class="inline" href="insurance.html">Insurance &amp; Billing</a> page for more.</p>')
 faq_body = TOPBAR + header(False) + subhero(
@@ -754,7 +761,7 @@ privacy_body = TOPBAR + header(False) + subhero(
       ''' + DRAFT_NOTE + '''
       <p class="ins-updated" style="margin-top:0">Effective October 13, 2026 · Last updated October 13, 2026</p>
       <h2>Information we collect</h2>
-      <p>This website does not collect personal or health information directly, and it does not use advertising or tracking cookies. Appointment requests, patient registration, and consent forms are completed through our secure patient portal, which is operated by our practice-management provider and protected under HIPAA.</p>
+      <p>This website does not collect personal or health information directly, and it does not use advertising or tracking cookies. Appointment requests, patient registration, and consent forms are completed through our secure patient portal, which is operated by our practice-management provider and protected under HIPAA. Read the ''' + '<a class="inline" href="' + PORTAL_PRIVACY_URL + '" target="_blank" rel="noopener">patient portal privacy policy</a>' + '''.</p>
       <p>If you call or email us, we use what you share only to respond to you and to provide care. Please don't send medical details or other sensitive information by email; use the secure patient portal instead.</p>
       <h2>Third-party services</h2>
       <p>Fonts are hosted on this website. The office map loads from Google Maps only when you choose to open it. Links to Google, Yelp, Facebook, Instagram, X, and product manufacturers take you to sites governed by their own privacy policies.</p>
