@@ -406,6 +406,10 @@ main:focus{outline:none}
 .nav-cta .btn{white-space:nowrap}
 @media (max-width:480px){ .nav-cta .btn{font-size:14px;padding:11px 16px} .nav-cta{gap:8px} }
 .nowrap{white-space:nowrap}
+/* template placeholders — fill in before launch */
+.tbd{background:#FFF6E0;border:1.5px dashed #C9962E;border-radius:6px;padding:1px 6px;color:#5C4510;font-weight:600}
+.tbd-banner{background:#FFF6E0;border:1.5px dashed #C9962E;border-radius:14px;padding:16px 20px;margin:0 0 22px;color:#5C4510;line-height:1.6}
+.tbd-banner strong{display:block;margin-bottom:2px}
 /* lighter footer legal text for contrast on the dark footer */
 .legal{color:#9FC2CE}
 /* footer column headings are now <h2> (keep the small uppercase look) */

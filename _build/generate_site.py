@@ -32,7 +32,7 @@ ALIGN_PAGE = "clarity-aligners.html"
 LIVE = False                  # False = GitHub Pages preview (noindex, assets from GitHub). True = production on tichydental.com
 YELP_URL = "https://www.yelp.com/biz/tichy-dental-west-linn"
 GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJlUWZp4pzlVQRCxpv23AcU-k"   # opens Google's review form
-NPP_URL = ""                  # link to the practice's HIPAA Notice of Privacy Practices (PDF or page)
+NPP_URL = "notice-of-privacy-practices.html"   # HIPAA Notice of Privacy Practices (template page — complete in Wix)
 PORTAL_PRIVACY_URL = "https://tch.identalcloud.com/TichyDental/Patient/_practice/1/PrivacyPolicy"   # practice's patient-portal privacy policy
 SHOW_EMPTY_TEAM_SLOTS = False # True shows "coming soon" cards for unfilled team slots
 GOOGLE_CID_URL = "https://maps.google.com/?cid=" + str(int("e9531c70db6f1a0b", 16))
@@ -189,7 +189,7 @@ FOOTER = '''<!-- footer -->
     </div>
     <div class="legal">
       <span>© 2026 Tichy Dental LLC · West Linn, Oregon</span>
-      <span><a href="privacy.html">Privacy Policy</a> · <a href="accessibility.html">Accessibility</a></span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="notice-of-privacy-practices.html">Notice of Privacy Practices</a> · <a href="accessibility.html">Accessibility</a></span>
     </div>
   </div>
 </footer>
@@ -664,8 +664,9 @@ PAGES["insurance.html"] = shell(
 
 # ---------------- FAQ ----------------
 FAQ_DATA = []
-def qa(q, answer_html):
-    FAQ_DATA.append((q, answer_html))
+def qa(q, answer_html, template=False):
+    if not template:   # template answers stay out of FAQPage structured data until filled in
+        FAQ_DATA.append((q, answer_html))
     return '      <details class="qa"><summary>'+q+'</summary><div class="a">'+answer_html+'</div></details>\n'
 faq_items = ""
 faq_items += qa("How can I schedule an appointment with Tichy Dental?",
@@ -690,6 +691,10 @@ faq_items += qa("Where do I park?",
     '<p>We have a parking lot at the office, including accessible parking. We\'re at 18607 Willamette Dr. in West Linn — <a class="inline" href="' + DIRECTIONS + '" target="_blank" rel="noopener">get directions</a>.</p>')
 faq_items += qa("What forms of payment do you accept?",
     '<p>We accept credit cards, debit cards and contactless mobile payments, as well as many dental insurance plans (see <a class="inline" href="insurance.html">Insurance &amp; Billing</a>). For questions about your balance or payment options, call our front desk at <a class="inline" href="tel:5036353588">(503) 635-3588</a>.</p>')
+faq_items += qa("Do you offer financing or payment plans?",
+    '<p><span class="tbd">[Template — complete before going live: describe payment plans or financing options the office offers, or remove this question.]</span></p>', template=True)
+faq_items += qa("What is your cancellation policy?",
+    '<p><span class="tbd">[Template — complete before going live: how much notice is needed to cancel or reschedule (for example, 24 or 48 hours) and any missed-appointment fee.]</span></p>', template=True)
 faq_items += qa("What insurance does Tichy Dental accept?",
     '<p>We accept many insurance companies and are preferred providers for: Delta Dental/Moda, Regence BlueCross BlueShield, Dentemax, MetLife, United Concordia, and Cigna. Please call us to ask if we accept your insurance. Dentemax is not an insurance company but has hundreds of insurance companies under its umbrella — so call and ask if you may be covered. See our <a class="inline" href="insurance.html">Insurance &amp; Billing</a> page for more.</p>')
 faq_body = TOPBAR + header(False) + subhero(
@@ -744,6 +749,65 @@ PAGES["emergency-dentist.html"] = shell(
     "Emergency Dentist in West Linn, OR | Tichy Dental",
     "Dental emergency in West Linn? Call Tichy Dental at (503) 635-3588. What to do for a knocked-out tooth, toothache or broken tooth, and when to go to the ER.",
     emerg_body)
+
+# ---------------- NOTICE OF PRIVACY PRACTICES (template) ----------------
+def tbd(text):
+    return '<span class="tbd">[' + text + ']</span>'
+npp_body = TOPBAR + header(False) + subhero(
+    "Patient Info · HIPAA", "Notice of Privacy Practices",
+    "How Tichy Dental may use and share your health information, and your rights to access and control it.",
+    "Notice of Privacy Practices") + """
+<section class="pagebody tight">
+  <div class="wrap">
+    <div class="prose">
+      <div class="tbd-banner" role="note"><strong>Template — complete before going live.</strong> Replace every highlighted field with the practice's information and have the practice's privacy officer or compliance advisor approve the final notice. Structure follows the HHS model Notice of Privacy Practices for health care providers.</div>
+      <p class="ins-updated" style="margin-top:0">Effective date: """ + tbd("Month Day, Year") + """</p>
+      <p class="lead-para">This notice describes how medical information about you may be used and disclosed and how you can get access to this information. Please review it carefully.</p>
+
+      <h2>Your rights</h2>
+      <p>When it comes to your health information, you have certain rights:</p>
+      <ul>
+        <li><strong>Get a copy of your dental and health records.</strong> Ask us to see or get a copy of your records. We will provide a copy or a summary within """ + tbd("number") + """ days of your request. We may charge a reasonable, cost-based fee.</li>
+        <li><strong>Ask us to correct your records</strong> if you think they are incorrect or incomplete. We may say "no," but we'll tell you why in writing within 60 days.</li>
+        <li><strong>Request confidential communications.</strong> Ask us to contact you in a specific way (for example, home or office phone) or to send mail to a different address.</li>
+        <li><strong>Ask us to limit what we use or share.</strong> If you pay for a service in full out of pocket, you can ask us not to share that information with your health insurer.</li>
+        <li><strong>Get a list of those with whom we've shared information</strong> for up to six years before the date you ask.</li>
+        <li><strong>Get a copy of this notice</strong> at any time, even if you have agreed to receive it electronically.</li>
+        <li><strong>Choose someone to act for you,</strong> such as a medical power of attorney or legal guardian.</li>
+        <li><strong>File a complaint</strong> if you feel your rights are violated — see "Contact" below. We will not retaliate against you for filing a complaint.</li>
+      </ul>
+
+      <h2>Your choices</h2>
+      <p>You can tell us your choices about what we share in these situations: sharing with your family, close friends or others involved in your care, and sharing in a disaster-relief situation. We never share your information for marketing purposes or sell it unless you give us written permission.</p>
+      <p>""" + tbd("Describe any appointment-reminder, text-message or email practices and how patients can opt out") + """</p>
+
+      <h2>Our uses and disclosures</h2>
+      <p>We typically use or share your health information to <strong>treat you</strong>, to <strong>run our practice</strong>, and to <strong>bill for your services</strong> and receive payment from health plans or other entities.</p>
+      <p>We are also allowed or required to share your information in other ways — usually to contribute to the public good, such as public health and research — including to help with public health and safety issues, comply with the law, respond to organ and tissue donation requests, work with a medical examiner or funeral director, address workers' compensation, law enforcement and other government requests, and respond to lawsuits and legal actions.</p>
+      <p>""" + tbd("Add any state-specific (Oregon) requirements identified by the practice's advisor") + """</p>
+
+      <h2>Our responsibilities</h2>
+      <ul>
+        <li>We are required by law to maintain the privacy and security of your protected health information.</li>
+        <li>We will let you know promptly if a breach occurs that may have compromised the privacy or security of your information.</li>
+        <li>We must follow the duties and privacy practices described in this notice and give you a copy of it.</li>
+        <li>We will not use or share your information other than as described here unless you tell us we can in writing. You may change your mind at any time by letting us know in writing.</li>
+      </ul>
+
+      <h2>Changes to the terms of this notice</h2>
+      <p>We can change the terms of this notice, and the changes will apply to all information we have about you. The new notice will be available on request, in our office, and on our website.</p>
+
+      <h2>Contact</h2>
+      <p>Privacy Officer: """ + tbd("Name") + """ · Tichy Dental LLC, 18607 Willamette Dr., West Linn, OR 97068 · <a class="inline" href="tel:5036353588">(503) 635-3588</a> · """ + tbd("Email") + """</p>
+      <p>You can also file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights at <a class="inline" href="https://www.hhs.gov/ocr/complaints/index.html" target="_blank" rel="noopener">hhs.gov/ocr/complaints</a>.</p>
+    </div>
+  </div>
+</section>
+""" + book_band() + FOOTER
+PAGES["notice-of-privacy-practices.html"] = shell(
+    "Notice of Privacy Practices | Tichy Dental, West Linn OR",
+    "HIPAA Notice of Privacy Practices for Tichy Dental in West Linn, Oregon.",
+    npp_body)
 
 # ---------------- LEGAL PAGES (drafts — review before publishing) ----------------
 DRAFT_NOTE = ''
